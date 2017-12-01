@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
-import Playlist from './components/Playlist';
+import Container from './components/Container';
 import './styles/index.scss';
 
 const App = () => (
@@ -8,7 +8,7 @@ const App = () => (
         <header>
             <h1>Playlist challenge</h1>
         </header>
-        <Playlist />
+        <Container />
     </div>
 );
 
