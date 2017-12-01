@@ -1,0 +1,30 @@
+header {
+    text-align: center;
+    padding: $padding;
+}
+
+.track {
+    display: inline-block;
+    padding-top: $padding;
+    padding-bottom: $padding;
+    margin: 0.5rem;
+    width: 11rem;
+    .box-image {
+        width: 11rem;
+        height: 9rem;
+        position: relative;
+    }
+    .details, .thumb-content {
+        text-align: center;
+    }
+    .album-img {
+        width: 8.2rem;
+        margin-left: 1.45rem;
+    }
+    .thumb-content , .userAdd{
+        margin-top: 1rem;
+    }
+    .userAdd {
+        text-align: center;
+    }
+}

@@ -1,0 +1,25 @@
+body {
+    background: $background;  
+    font-family: $font;
+}
+
+header {
+    background: $header-background;
+    font-size: $header-font-size;
+    color: $grey-light;
+}
+
+.track {
+    font-size: 1rem;
+    background: $background-music;
+    border: 0.1rem solid $grey-light;
+    .album-img {
+        @include radius(0.3rem);
+    }
+    .title{
+        color: #9E9E9E;
+    }
+    .userAdd p {
+        color: $userAddColor;
+    }
+}
