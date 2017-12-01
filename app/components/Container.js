@@ -17,26 +17,32 @@ export default class Container extends React.Component {
         }
     }
     
-    orderByPriority(tmpList){
-
-    }
-    orderByVote(tmpList){ 
-        return tmpList.sort((a, b) => b['votes'].count - a['votes'].count);
-    }
-
     orderById(tmpList){
         return tmpList.sort((a, b) => a.id - b.id );
+    }
+
+    orderByVote(tmpList){ 
+        return tmpList.sort((a, b) => b['votes'].count - a['votes'].count);
+    } 
+
+    orderByPriority(tmpList){
+        let priorityTrue;
+        let priorityFalse;
+
+        priorityTrue = tmpList.filter( e => e.priority == true);
+        priorityFalse = tmpList.filter( e => e.priority == false);
+
+        return priorityTrue.concat(priorityFalse);
     }
 
     orderPlaylist(){
         let tmpList = this.state.data;
 
+        tmpList = this.orderById(tmpList);
         tmpList = this.orderByVote(tmpList);
+        tmpList = this.orderByPriority(tmpList);
 
-        console.log(tmpList);
-        //  tmpList.map(e=>{
-        //     console.log(e['votes'].count)
-        // })
+        console.log(tmpList)
     }
 
     render(){

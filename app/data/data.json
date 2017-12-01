@@ -12,9 +12,19 @@
         },
         {
             "id": 2,
+            "name": "Drones",
+            "duration": 219,
+            "priority": true,
+            "artist": "Muse",
+            "adder": { "id": 1, "name": "kant", "pictureUrl": "https://res.cloudinary.com/jukeo-net/image/upload/ano-b2_eezggd" },
+            "pictureUrl": "http://www.muse-france.fr/wp-content/uploads/2015/03/Le-nouvel-album-de-muse-drones-sera-disponible-le-8-juin-2015.jpg",
+            "votes": { "count": 40, "userVoted": false }
+        },
+        {
+            "id": 3,
             "name": "Purple Haze",
             "duration": 229,
-            "priority": false,
+            "priority": true,
             "artist": "Jimi Hendrix",
             "adder": { "id": 1, "name": "kant", "pictureUrl": "https://res.cloudinary.com/jukeo-net/image/upload/ano-b2_eezggd" },
             "pictureUrl": "https://i.scdn.co/image/1d55f445789ed89a1b8fab09c3dad117afb5fe80",
