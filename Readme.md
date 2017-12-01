@@ -1,4 +1,4 @@
-# Playlist chalenge
+# Playlist challenge
 
 ## Exécution
 
