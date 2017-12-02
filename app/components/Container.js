@@ -3,11 +3,12 @@ import Playlist from './Playlist';
 import data from '../data/data.json';
 
 export default class Container extends React.Component {
+
     constructor(props){
         super(props);
         this.state = {
             data : 'vide',
-            list : []
+            tmpList : []
         }
     }
 
@@ -15,6 +16,10 @@ export default class Container extends React.Component {
         if(data.playlist.length != 0)  {
             this.setState({data: data.playlist});
         }
+    }
+
+    componentDidMount(){
+        this.orderPlaylist();
     }
     
     orderById(tmpList){
@@ -32,22 +37,24 @@ export default class Container extends React.Component {
         priorityTrue = tmpList.filter( e => e.priority == true);
         priorityFalse = tmpList.filter( e => e.priority == false);
 
-        return priorityTrue.concat(priorityFalse);
+        return [...priorityTrue, ...priorityFalse];
     }
 
     orderPlaylist(){
-        let tmpList = this.state.data;
+        let tmpList = [...this.state.data];
 
         tmpList = this.orderById(tmpList);
         tmpList = this.orderByVote(tmpList);
         tmpList = this.orderByPriority(tmpList);
 
-        console.log(tmpList)
+        console.log(tmpList);
+
+        this.setState({ tmpList: [...tmpList]})
+
+        console.log(this.state);
     }
 
     render(){
-
-        this.orderPlaylist();
 
         if(this.state.data == 'vide'){
             return (

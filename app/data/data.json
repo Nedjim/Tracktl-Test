@@ -28,7 +28,7 @@
             "artist": "Jimi Hendrix",
             "adder": { "id": 1, "name": "kant", "pictureUrl": "https://res.cloudinary.com/jukeo-net/image/upload/ano-b2_eezggd" },
             "pictureUrl": "https://i.scdn.co/image/1d55f445789ed89a1b8fab09c3dad117afb5fe80",
-            "votes": { "count": 60, "userVoted": false }
+            "votes": { "count": 40, "userVoted": false }
         }
       ]
 }
