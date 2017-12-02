@@ -7,8 +7,7 @@ export default class Container extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            data : 'vide',
-            tmpList : []
+            data : 'vide'
         }
     }
 
@@ -21,14 +20,6 @@ export default class Container extends React.Component {
     componentDidMount(){
         this.orderPlaylist();
     }
-    
-    orderById(tmpList){
-        return tmpList.sort((a, b) => a.id - b.id );
-    }
-
-    orderByVote(tmpList){ 
-        return tmpList.sort((a, b) => b['votes'].count - a['votes'].count);
-    } 
 
     orderByPriority(tmpList){
         let priorityTrue;
@@ -41,17 +32,13 @@ export default class Container extends React.Component {
     }
 
     orderPlaylist(){
-        let tmpList = [...this.state.data];
+        let tmpList = this.state.data;
 
-        tmpList = this.orderById(tmpList);
-        tmpList = this.orderByVote(tmpList);
+        tmpList = tmpList.sort((a, b) => a.id - b.id );
+        tmpList = tmpList.sort((a, b) => b['votes'].count - a['votes'].count);
         tmpList = this.orderByPriority(tmpList);
 
-        console.log(tmpList);
-
-        this.setState({ tmpList: [...tmpList]})
-
-        console.log(this.state);
+        this.setState({ data: tmpList});
     }
 
     render(){
