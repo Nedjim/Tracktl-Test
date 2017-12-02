@@ -7,13 +7,13 @@ export default class Container extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            data : 'vide'
+            playlist : 'vide'
         }
     }
 
     componentWillMount(){
         if(data.playlist.length != 0)  {
-            this.setState({data: data.playlist});
+            this.setState({playlist: data.playlist});
         }
     }
 
@@ -32,18 +32,18 @@ export default class Container extends React.Component {
     }
 
     orderPlaylist(){
-        let tmpList = this.state.data;
+        let tmpList = this.state.playlist;
 
         tmpList = tmpList.sort((a, b) => a.id - b.id );
         tmpList = tmpList.sort((a, b) => b['votes'].count - a['votes'].count);
         tmpList = this.orderByPriority(tmpList);
 
-        this.setState({ data: tmpList});
+        this.setState({ playlist: tmpList});
     }
 
     render(){
 
-        if(this.state.data == 'vide'){
+        if(this.state.playlit == 'vide'){
             return (
                 <div>
                     <h3>La tracklist est vide</h3>
@@ -54,7 +54,7 @@ export default class Container extends React.Component {
         else {
             return (
                 <div>
-                    <Playlist />
+                    <Playlist playlist={this.state.playlist}/>
                 </div>
             )
         }
