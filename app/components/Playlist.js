@@ -15,6 +15,8 @@ export default class Playlist extends React.Component {
     }
 
     render() {
+        console.log('Playlist component')
+        console.log(this.state)
         return (
             <div id='playlist'>
                 {this.state.playlist.map( e => (

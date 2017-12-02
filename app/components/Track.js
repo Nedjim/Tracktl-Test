@@ -15,15 +15,6 @@ export default class Track extends React.Component {
         }
     }
 
-    // update_like(){
-    //     if(this.state.userVoted == false) {
-    //         this.setState({ 
-    //             like : this.state.like +1,
-    //             userVoted : !this.state.userVoted
-    //         })
-    //     }
-    // };
-
     clickVote(){
         if(this.state.userVoted == false) {
             this.props.getId(this.state.id);
@@ -31,7 +22,9 @@ export default class Track extends React.Component {
     }
 
     render(){
-
+        console.log('Track component')
+        
+        console.log(this.state)
         if(this.state.userVoted){
             var buttonStyle = {
                 background: '#ce686b'
