@@ -23,6 +23,9 @@ header {
         color: $userAddColor;
     }
     
+    .menu {
+        @include radius(9rem);
+    }
     .eart-button {
         @include radius(2rem);
         .counter-value {

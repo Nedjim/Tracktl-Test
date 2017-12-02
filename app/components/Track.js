@@ -1,5 +1,6 @@
 import React from 'react';
 import eart from '../assets/heart.png';
+import nav from '../assets/nav-icon.png';
 
 export default class Track extends React.Component { 
 
@@ -29,6 +30,7 @@ export default class Track extends React.Component {
 
     render(){
         var buttonStyle;
+        var menuStyle;
 
         if(this.state.userVoted){
             buttonStyle = {
@@ -45,6 +47,10 @@ export default class Track extends React.Component {
             var borderTrack = {
                 border: '1rem solid #7bd08b'
             }
+        }
+
+        menuStyle = {
+            background: '#343434'
         }
         
         return (
@@ -66,7 +72,10 @@ export default class Track extends React.Component {
                     <p className='userAdd'>Ajouter par Test</p>
                 </div>
                 <div className='votes'>
-                    <div className='eart-button' style={buttonStyle}>
+                    <div className='menu inline-block' style={menuStyle}>
+                        <img className='nav-icon' src={nav}/>
+                    </div>
+                    <div className='eart-button inline-block' style={buttonStyle}>
                         <span className='counter-value'> {this.state.like} </span>
                         <img className='eart-img' src={eart} onClick={this.clickVote.bind(this)}/>
                     </div>

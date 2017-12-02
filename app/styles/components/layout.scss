@@ -38,6 +38,7 @@ header {
 
     .votes {
         float: right;
+    
         .eart-button {
             width : 7rem;
             .counter-value {
@@ -47,6 +48,13 @@ header {
             }
             .eart-img {
                 width: 3rem;
+            }
+        }
+        .menu {
+            padding: 0.5rem;
+            margin-right: 1rem;
+            .nav-icon {
+                width: 2rem;
             }
         }
     }
