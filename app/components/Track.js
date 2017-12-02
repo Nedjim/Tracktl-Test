@@ -1,9 +1,11 @@
 import React from 'react';
 
 export default class Track extends React.Component { 
+
     constructor(props){
         super(props);
         this.state = {
+            id: props.details.id,
             name: props.details.name,
             artist: props.details.artist,
             img: props.details['pictureUrl'], 
@@ -13,14 +15,18 @@ export default class Track extends React.Component {
         }
     }
 
-    update_like(){
-        if(this.state.userVoted == false) {
-            this.setState({ 
-                like : this.state.like +1,
-                userVoted : !this.state.userVoted
-            })
-        }
-    };
+    // update_like(){
+    //     if(this.state.userVoted == false) {
+    //         this.setState({ 
+    //             like : this.state.like +1,
+    //             userVoted : !this.state.userVoted
+    //         })
+    //     }
+    // };
+
+    clickVote(){
+        this.props.getId(this.state.id);
+    }
 
     render(){
 
@@ -46,7 +52,7 @@ export default class Track extends React.Component {
                     <p className='title'><strong>{this.state.name}</strong></p>
                 </div>
                 <div className='thumb-content'>
-                    <button style={buttonStyle} onClick={this.update_like.bind(this)}>Heart</button>
+                    <button style={buttonStyle} onClick={this.clickVote.bind(this)}>Heart</button>
                     <span className='counter-value'> {this.state.like} </span>
                 </div>
                 <div className='userAdd'>

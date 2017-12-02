@@ -41,6 +41,10 @@ export default class Container extends React.Component {
         this.setState({ playlist: tmpList});
     }
 
+    updateLike(id){
+        console.log(id);
+    }
+
     render(){
 
         if(this.state.playlit == 'vide'){
@@ -54,7 +58,7 @@ export default class Container extends React.Component {
         else {
             return (
                 <div>
-                    <Playlist playlist={this.state.playlist}/>
+                    <Playlist playlist={this.state.playlist} updateLike={this.updateLike}/>
                 </div>
             )
         }

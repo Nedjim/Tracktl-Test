@@ -1,12 +1,26 @@
 import React from 'react';
 import Track from './Track';
 
-const Playlist = (props) => (
-    <div id='playlist'>
-        {props.playlist.map( e => (
-            <Track key={e.id} details={e}/>
-        ))}
-    </div>
-);
+export default class Playlist extends React.Component {
 
-export default Playlist;
+    constructor(props){
+        super(props);
+        this.state = {
+            playlist: props.playlist,  
+        }
+    }
+
+    getId(id){
+        this.props.updateLike(id);
+    }
+
+    render() {
+        return (
+            <div id='playlist'>
+                {this.state.playlist.map( e => (
+                    <Track key={e.id} details={e} getId={this.getId.bind(this)}/>
+                ))}
+            </div>
+        )
+    }
+}
