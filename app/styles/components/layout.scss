@@ -2,10 +2,14 @@ header {
     text-align: center;
     padding: $padding;
 }
+#playlist {
+    margin-top: 3rem;
+}
 
 .track {
     position: relative;
-
+    width: 60%;
+    margin: 0 auto;
     .votes, .adder, .sound {
         padding: 1rem;
     }
