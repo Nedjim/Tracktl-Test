@@ -1,5 +1,6 @@
 body {
-    background: $background;  
+    background-image: $backgroundImage;
+    background-size: cover;
     font-family: $font;
 }
 
