@@ -1,3 +1,4 @@
+import TransitionGroup from 'react-addons-transition-group';
 import React from 'react';
 import Track from './Track';
 import data from '../data/data.json';
@@ -10,6 +11,7 @@ export default class Container extends React.Component {
             playlist : 'vide',
             firstSound : null
         }
+        this.updateLike = this.updateLike.bind(this);
     }
 
     componentWillMount(){
@@ -65,7 +67,7 @@ export default class Container extends React.Component {
     }
 
     render(){
-        //console.log(this.state)
+
         if(this.state.playlit == 'vide'){
             return (
                 <div>
@@ -76,11 +78,13 @@ export default class Container extends React.Component {
         }
         else {
             return (
-                <div id='playlist'>
-                    {this.state.playlist.map( e => (
-                        <Track key={e.id} details={e} firstSoundId={this.state.firstSound} updateLike={this.updateLike.bind(this)}/>
-                    ))}
-                </div>
+                <TransitionGroup>
+                    <div id='playlist'>
+                        {this.state.playlist.map( e => (
+                            <Track className={`fade fade-${status}`} key={e.id} details={e} firstSoundId={this.state.firstSound} updateLike={this.updateLike}/>
+                        ))}
+                    </div>
+                </TransitionGroup>
             )
         }
     }

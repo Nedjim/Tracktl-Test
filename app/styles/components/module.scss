@@ -5,3 +5,12 @@
 .track .userAdd {
     transition: 0s;
 }
+.fade {
+    transition: ease-in 0.15s;
+    transition-property: opacity, transform;
+}
+  
+.fade-entering {
+    opacity: 0;
+    transform: translateY(-10%);
+}
