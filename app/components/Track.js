@@ -25,7 +25,9 @@ export default class Track extends React.Component {
     // };
 
     clickVote(){
-        this.props.getId(this.state.id);
+        if(this.state.userVoted == false) {
+            this.props.getId(this.state.id);
+        }
     }
 
     render(){

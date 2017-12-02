@@ -42,7 +42,16 @@ export default class Container extends React.Component {
     }
 
     updateLike(id){
-        console.log(id);
+        let tmpList = this.state.playlist;
+
+        tmpList.map( e => {
+            if(e.id == id) {
+                e['votes'].count = e['votes'].count + 1;
+                e['votes'].userVoted = true;
+            }
+        })
+        
+        this.setState({ playlist: tmpList});
     }
 
     render(){
@@ -58,7 +67,7 @@ export default class Container extends React.Component {
         else {
             return (
                 <div>
-                    <Playlist playlist={this.state.playlist} updateLike={this.updateLike}/>
+                    <Playlist playlist={this.state.playlist} updateLike={this.updateLike.bind(this)}/>
                 </div>
             )
         }
