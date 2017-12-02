@@ -7,13 +7,16 @@ export default class Container extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            playlist : 'vide'
+            playlist : 'vide',
+            firstSound : null
         }
     }
 
     componentWillMount(){
         if(data.playlist.length != 0)  {
-            this.setState({playlist: data.playlist});
+            this.setState({
+                playlist: data.playlist
+            });
         }
     }
 
@@ -38,7 +41,10 @@ export default class Container extends React.Component {
         tmpList = tmpList.sort((a, b) => b['votes'].count - a['votes'].count);
         tmpList = this.orderByPriority(tmpList);
 
-        this.setState({ playlist: tmpList});
+        this.setState({ 
+            playlist: tmpList,
+            firstSound: tmpList[0].id
+        });
     }
 
     updateLike(id){
@@ -51,12 +57,15 @@ export default class Container extends React.Component {
             }
         })
         
-        this.setState({ playlist: tmpList});
+        this.setState({ 
+            playlist: tmpList,
+        });
+        
         this.orderPlaylist();
     }
 
     render(){
-
+        //console.log(this.state)
         if(this.state.playlit == 'vide'){
             return (
                 <div>
@@ -69,7 +78,7 @@ export default class Container extends React.Component {
             return (
                 <div id='playlist'>
                     {this.state.playlist.map( e => (
-                        <Track key={e.id} details={e} updateLike={this.updateLike.bind(this)}/>
+                        <Track key={e.id} details={e} firstSoundId={this.state.firstSound} updateLike={this.updateLike.bind(this)}/>
                     ))}
                 </div>
             )

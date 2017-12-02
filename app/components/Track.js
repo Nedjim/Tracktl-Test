@@ -14,7 +14,8 @@ export default class Track extends React.Component {
             img: props.details['pictureUrl'], 
             like: props.details['votes'].count,
             userVoted: props.details['votes'].userVoted,
-            priority: this.props.details.priority
+            priority: this.props.details.priority,
+            firstSoundId: null
         }
     }
 
@@ -28,33 +29,35 @@ export default class Track extends React.Component {
         }
     }
 
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            firstSoundId: nextProps.firstSoundId
+        })
+    }
+
     render(){
         var buttonStyle;
         var menuStyle;
+        var borderTrack
 
-        if(this.state.userVoted){
-            buttonStyle = {
-                background: '#ce686b'
+        this.state.userVoted == true ? buttonStyle = {background: '#ce686b'} : buttonStyle = { background: '#343434' };
+        
+        if(this.state.firstSoundId == this.state.id){
+            borderTrack = {
+                border: '0.2rem solid #7bd08b'
+            }
+            menuStyle = {
+                background: '#7bd08b'
             }
         }
         else {
-            buttonStyle = {
+            menuStyle = {
                 background: '#343434'
             }
         }
-
-        if(this.state.priority){
-            var borderTrack = {
-                border: '1rem solid #7bd08b'
-            }
-        }
-
-        menuStyle = {
-            background: '#343434'
-        }
         
         return (
-            <div className='track'>
+            <div className='track' style={borderTrack}>
                 <div className='adder'>
                     <img className='adder-img' src={this.state.adder}/>
                 </div>
