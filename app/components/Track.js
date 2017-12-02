@@ -17,14 +17,16 @@ export default class Track extends React.Component {
 
     clickVote(){
         if(this.state.userVoted == false) {
-            this.props.getId(this.state.id);
+            this.props.updateLike(this.state.id);
+            this.setState({
+                like: this.state.like + 1,
+                userVoted: true
+            })
         }
     }
 
+
     render(){
-        console.log('Track component')
-        
-        console.log(this.state)
         if(this.state.userVoted){
             var buttonStyle = {
                 background: '#ce686b'
