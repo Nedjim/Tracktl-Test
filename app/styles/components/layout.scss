@@ -4,27 +4,50 @@ header {
 }
 
 .track {
-    display: inline-block;
-    padding-top: $padding;
-    padding-bottom: $padding;
-    margin: 0.5rem;
-    width: 11rem;
-    .box-image {
-        width: 11rem;
-        height: 9rem;
-        position: relative;
+    position: relative;
+
+    .votes, .adder, .sound {
+        padding: 1rem;
     }
-    .details, .thumb-content {
-        text-align: center;
+    .inline-block {
+        display: inline-block;
     }
-    .album-img {
-        width: 8.2rem;
-        margin-left: 1.45rem;
+
+    .adder, .sound {
+        display: inline-block;
     }
-    .thumb-content , .userAdd{
-        margin-top: 1rem;
+
+    .adder {
+        .adder-img {
+            @include radius(20rem);
+            width: 5rem;
+        }
     }
-    .userAdd {
-        text-align: center;
+
+    .sound {
+        position: absolute;
+        .album-img {
+            width: 4rem;
+        }
+        .details {
+            position: absolute;
+            width: max-content;
+            margin-left: 1rem;
+        }
+    }
+
+    .votes {
+        float: right;
+        .eart-button {
+            width : 7rem;
+            .counter-value {
+                float: left;
+                margin-top: 0.9rem;
+                margin-left: 1rem;
+            }
+            .eart-img {
+                width: 3rem;
+            }
+        }
     }
 }

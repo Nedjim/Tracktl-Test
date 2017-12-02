@@ -10,16 +10,24 @@ header {
 }
 
 .track {
-    font-size: 1rem;
     background: $background-music;
     border: 0.1rem solid $grey-light;
-    .album-img {
-        @include radius(0.3rem);
-    }
+
+     .adder-img {
+        @include radius(20rem);
+     }
     .title{
-        color: #9E9E9E;
+        color: $blue-light;
     }
-    .userAdd p {
+    .userAdd {
         color: $userAddColor;
+    }
+    
+    .eart-button {
+        @include radius(2rem);
+        .counter-value {
+            color: $grey-light;
+            font-size: 1.8rem;
+        }
     }
 }
